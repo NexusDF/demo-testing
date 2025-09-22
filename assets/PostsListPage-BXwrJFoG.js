@@ -1,0 +1,1 @@
+import{n as e,s as t,u as n}from"./index-CP3AdzRk.js";var r={},i={class:`text-xl text-gray-600`};function a(e,r){return n(),t(`h1`,i,`Select post or create new`)}var o=e(r,[[`render`,a]]);export{o as default};

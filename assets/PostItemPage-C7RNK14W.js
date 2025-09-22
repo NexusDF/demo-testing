@@ -1,1 +1,0 @@
-import{d as e,l as t,o as n,r,s as i,t as a,u as o}from"./index-Dc2fxNWL.js";var s=t({__name:`PostItemPage`,setup(t){let s=r(),c=n(()=>a().value.find(e=>e.id===s.params.id));return(t,n)=>(o(),i(`h1`,null,e(c.value?.title),1))}});export{s as default};
