@@ -1,18 +1,13 @@
+<script setup lang="ts">
+import { RouterView } from 'vue-router'
+import NavPanel from './components/NavPanel.vue'
+</script>
+
 <template>
-  <div class="container">
-    <h1 class="heading">Demo testing Github page!</h1>
+  <div class="min-h-screen flex flex-col">
+    <NavPanel />
+    <main class="flex grow px-6">
+      <RouterView />
+    </main>
   </div>
 </template>
-
-<style scoped>
-.container {
-  min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.heading {
-  font-size: 32px;
-  color: #333;
-}
-</style>
