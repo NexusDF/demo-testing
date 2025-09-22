@@ -1,18 +1,22 @@
 <script setup lang="ts">
-import { POSTS_ID } from '@/utils/constants'
+import { usePosts } from '@/composable/usePosts'
+import type { Post } from '@/utils/interfaces'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const posts = usePosts()
 
 function onSave(e: SubmitEvent) {
   const formData = new FormData(e.currentTarget as HTMLFormElement)
-  const { title, description } = Object.fromEntries(formData) as {
-    title: string
-    description: string
-  }
-  const posts = JSON.parse(localStorage.getItem(POSTS_ID) || '[]')
-  localStorage.setItem(POSTS_ID, JSON.stringify([{ title, description }, ...posts]))
-  router.push('/posts')
+  const newPost = Object.fromEntries(formData) as Omit<Post, 'id'>
+
+  const id = posts.value.length + '_id'
+
+  posts.value.push({
+    id,
+    ...newPost,
+  })
+  router.push(`/posts/${id}/post`)
 }
 </script>
 

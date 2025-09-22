@@ -1,6 +1,4 @@
-import CreatePostPage from '@/pages/CreatePostPage.vue'
 import HomePage from '@/pages/HomePage.vue'
-import PostsListPage from '@/pages/PostsListPage.vue'
 import PostsPage from '@/pages/PostsPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -10,8 +8,9 @@ const routes = [
     path: '/posts',
     component: PostsPage,
     children: [
-      { path: '', component: PostsListPage },
-      { path: 'create-post', component: CreatePostPage },
+      { path: '', component: () => import('@/pages/PostsListPage.vue') },
+      { path: 'create-post', component: () => import('@/pages/CreatePostPage.vue') },
+      { path: ':id/post/', component: () => import('@/pages/PostItemPage.vue') },
     ],
   },
 ]
